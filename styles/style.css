@@ -214,7 +214,8 @@ input {
 /* -----------cheackbox------------- */
 
 .visually-hidden {
-  position: absolute;
+  /* position: absolute; */
+  display: none;
   inline-size: 1px;
   block-size: 1px;
   overflow: hidden;
