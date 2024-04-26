@@ -207,7 +207,7 @@ input {
 /* -----------cheackbox------------- */
 
 .visually-hidden {
-  display: none;
+  position: absolute;
   inline-size: 1px;
   block-size: 1px;
   overflow: hidden;
@@ -287,7 +287,7 @@ input {
 }
 
 .search-form__textfield:active {
-  outline: 1px solid #ffffff;
+  outline: 2px solid #ffffff;
 }
 
 .search-form__textfield:focus-visible {
@@ -295,21 +295,16 @@ input {
   outline-offset: 1px;
 }
 
-/* Этот пункт никак не получается сделать. не понимаю */
-
-/* При обычной стилизации данного состояния добиться стилизации рамки вокруг чекбоксов не получится. Поэтому вам необходимо стилизовать родительский элемент но только тогда, когда внутри него есть поле в состоянии :focus-visible.
-Для проверки вам понадобится псевдокласс :has(), а родительский элемент для полей (их обёртка) это  .search-form__label
-Кроме того, нужно будет стилизовать ещё состояние :active именно для данного поля ввода.
-Получится что для этого элемента стилизуем только два состояния --
-:active -- все четыре границы)
-:focus -- сбрасываем аутлайн
-Все остальное стилизуем через обёртку-родитель (.search-form__label) */
-
-.search-form__label .search-form__pseudo-checkbox:before {
+.search-form__pseudo-checkbox:before {
   display: inline-block;
   width: 15px;
   height: 15px;
   background-color: white;
   margin: auto;
   content: "";
+}
+
+.search-form__label:has(.search-form__checkbox:focus-visible) {
+  outline: 1px solid #ffffff;
+  outline-offset: 1px;
 }
